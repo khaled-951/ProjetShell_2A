@@ -26,7 +26,7 @@ lspci_cmd()
 }
 save_hwinfo()
 {
-	hwinfo --short > hwinfo.txt
+	hwinfo --short | sed -n -e '/cpu:/,/bios:/ p' > hwinfo.txt
 }
 save_lspci()
 {
