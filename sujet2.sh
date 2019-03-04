@@ -18,7 +18,7 @@ printf "\n"
 
 hwinfo_cmd()
 {
-	hwinfo
+	hwinfo --short
 }
 lspci_cmd()
 {
@@ -26,11 +26,11 @@ lspci_cmd()
 }
 save_hwinfo()
 {
-	hwinfo > hwinfo.txt
+	hwinfo --short > hwinfo.txt
 }
 save_lspci()
 {
-	lspci > lspci.txt
+	lspci | grep -v "PCI bridge:" > lspci.txt
 }
 if [ $# -eq 1 ]
 then
